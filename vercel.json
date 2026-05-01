@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "package.json", "use": "@vercel/static-build", "config": { "buildCommand": "npm run build", "outputDirectory": "dist" } },
+    { "src": "api/**/*.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/$1" },
+    { "src": "/(.*)", "dest": "/dist/$1" },
+    { "src": "/", "dest": "/dist/index.html" }
+  ],
+  "redirects": [
+    { "source": "/gambian-culture", "destination": "https://discover.fortisos.cloud", "permanent": true },
+    { "source": "/discover", "destination": "https://discover.fortisos.cloud", "permanent": true },
+    { "source": "/travel", "destination": "https://discover.fortisos.cloud", "permanent": true },
+    { "source": "/tourism", "destination": "https://discover.fortisos.cloud", "permanent": true },
+    { "source": "/gambia", "destination": "https://discover.fortisos.cloud", "permanent": true },
+    { "source": "/culture", "destination": "https://discover.fortisos.cloud", "permanent": true }
+  ]
+}
